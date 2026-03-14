@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --teal: #0a7c6e;
+    --teal-light: #e0f2ef;
+  }
+
+  ::selection {
+    background: rgba(10, 124, 110, 0.25);
+    color: inherit;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #0a7c6e; border-radius: 3px; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  /* Staggered animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Opacity 0 initial for animated elements */
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-slide-left {
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  /* Teal glow on focus */
+  .focus-teal:focus-visible {
+    outline: 2px solid #0a7c6e;
+    outline-offset: 3px;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #0a7c6e 0%, #4ab8a8 50%, #1ea998 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Code block styles (rehype-pretty-code) */
+[data-rehype-pretty-code-fragment] {
+  position: relative;
+}
+
+[data-rehype-pretty-code-fragment] pre {
+  @apply rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-5 overflow-x-auto text-sm;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply px-5 py-2 text-xs font-mono text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-white/5 border border-b-0 border-gray-200 dark:border-white/10 rounded-t-xl;
+}
+
+[data-highlighted-line] {
+  @apply bg-teal-50/60 dark:bg-teal-500/10 -mx-5 px-5;
+}
+
+/* Terminal cursor */
+.cursor::after {
+  content: "|";
+  @apply animate-blink text-teal-500;
+}

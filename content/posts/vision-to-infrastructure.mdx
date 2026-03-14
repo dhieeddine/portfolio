@@ -1,0 +1,87 @@
+---
+title: "Vision-to-Infrastructure: Turning Network Diagrams into Real Deployments"
+description: "How I built a system that uses YOLO computer vision to detect network topologies and automatically deploy them with Terraform and Containerlab."
+date: "2025-06-01"
+tags: ["Computer Vision", "YOLO", "Terraform", "DevOps", "Python"]
+---
+
+## The Problem
+
+Drawing a network diagram is one thing. Actually deploying it is another — and the gap between the two is full of manual, error-prone work. I wanted to eliminate that gap entirely.
+
+## The Approach
+
+The pipeline has three stages:
+
+### 1. Computer Vision Detection
+
+I trained a YOLOv8 model on a custom dataset of network diagrams, labeling:
+- **Routers** (R)
+- **Switches** (S)
+- **PCs / Endpoints** (PC)
+- **Links** (edges between nodes)
+
+After augmentation and tuning, the model reaches **~98% mAP** on the validation set.
+
+```python
+from ultralytics import YOLO
+
+model = YOLO("yolov8n.pt")
+results = model.train(
+    data="network_diagrams.yaml",
+    epochs=100,
+    imgsz=640,
+    batch=16,
+)
+```
+
+### 2. Graph Extraction
+
+Once nodes and links are detected, I build a graph from bounding-box centroids and proximity relationships:
+
+```python
+import networkx as nx
+
+def build_topology_graph(detections):
+    G = nx.Graph()
+    nodes = [d for d in detections if d.label in ("Router", "Switch", "PC")]
+    links = [d for d in detections if d.label == "Link"]
+
+    for node in nodes:
+        G.add_node(node.id, type=node.label, bbox=node.bbox)
+
+    for link in links:
+        src, dst = find_endpoints(link, nodes)
+        if src and dst:
+            G.add_edge(src.id, dst.id)
+
+    return G
+```
+
+### 3. Terraform + Containerlab Generation
+
+Using Jinja2 templates, the graph is rendered into deployment files:
+
+```python
+from jinja2 import Template
+
+CLAB_TEMPLATE = Template("""
+name: {{ topology_name }}
+topology:
+  nodes:
+  {% for node in nodes %}
+    {{ node.id }}:
+      kind: {{ node.kind }}
+  {% endfor %}
+  links:
+  {% for link in links %}
+    - endpoints: ["{{ link.src }}:eth1", "{{ link.dst }}:eth1"]
+  {% endfor %}
+""")
+```
+
+## Results
+
+End-to-end: **one image in, one running network out** — no manual YAML writing, no topology files to maintain by hand.
+
+The full code is on [GitHub](https://github.com/dhieeddine/pipeline-for-converting-imageTopo-to-terraformFormat).
