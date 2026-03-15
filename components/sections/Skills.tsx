@@ -18,16 +18,16 @@ export function Skills() {
           {Object.entries(SKILLS).map(([category, skills]) => (
             <div
               key={category}
-              className="p-5 rounded-2xl border border-gray-100 dark:border-white/8 bg-white dark:bg-white/3"
+              className="p-6 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.05] shadow-sm shadow-gray-200/50 dark:shadow-none"
             >
-              <h3 className="text-sm font-mono text-teal-600 dark:text-teal-400 mb-4 font-medium">
+              <h3 className="text-sm font-mono text-teal-600 dark:text-teal-400 mb-5 font-semibold">
                 {category}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5">
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 text-xs rounded-lg bg-gray-100 dark:bg-white/6 text-gray-700 dark:text-gray-300 font-mono"
+                    className="px-3 py-1 text-xs rounded-lg bg-teal-50 dark:bg-teal-500/10 text-teal-800 dark:text-teal-200 border border-teal-100/50 dark:border-teal-500/20 font-mono"
                   >
                     {skill}
                   </span>
