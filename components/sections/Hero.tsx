@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ZoomableImage } from "@/components/ui/ZoomableImage";
 
 export function Hero() {
   return (
@@ -94,14 +95,21 @@ export function Hero() {
               </div>
 
               <div className="flex-1 border-t lg:border-t-0 lg:border-l border-slate-700 pt-6 lg:pt-0 lg:pl-6">
-                <div className="w-full aspect-square bg-slate-800/50 rounded-lg overflow-hidden relative flex items-center justify-center">
+                <div className="w-full aspect-square bg-slate-800/50 rounded-lg overflow-hidden relative group/hero-img">
                   <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/30 via-transparent to-transparent" />
-                  <div className="z-10 text-primary flex flex-col items-center gap-3">
-                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse">
-                      <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-                    </svg>
+                  
+                  <div className="relative w-full h-full">
+                    <ZoomableImage
+                      src="/profil.png"
+                      alt="Dhia Eddine Barhoumi"
+                      className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                      objectFit="contain"
+                    />
+                    {/* Background for gaps if image is not square */}
+                    <div className="absolute inset-0 bg-slate-800/50 -z-10" />
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4 text-[10px] text-slate-500 uppercase tracking-widest font-bold text-center">
+
+                  <div className="absolute bottom-4 left-0 right-0 z-20 text-[10px] text-slate-100 bg-slate-900/60 backdrop-blur-sm py-1 px-2 rounded uppercase tracking-widest font-extrabold text-center mx-4">
                     System Architect v2.0
                   </div>
                 </div>
