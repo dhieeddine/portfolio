@@ -47,7 +47,7 @@ export function Hero() {
             Get in Touch
           </Link>
           <a
-            href="/cv_dhia_eddine_barhoumi.pdf"
+            href="/resume.pdf"
             download
             className="px-6 py-3 rounded-xl border border-gray-200 dark:border-white/10 hover:border-teal-500 dark:hover:border-teal-500 text-gray-700 dark:text-gray-300 font-medium transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
           >

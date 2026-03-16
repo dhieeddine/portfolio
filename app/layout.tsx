@@ -50,7 +50,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dhia Eddine Barhoumi",
     description: "Software engineering student · ML · Cloud · DevOps · ENIT",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
