@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { ZoomableImage } from "@/components/ui/ZoomableImage";
 
 const links = [
   { href: "/#home",       label: "Home" },
@@ -18,20 +19,20 @@ export function Navbar() {
     <header className="flex items-center justify-between whitespace-nowrap border-b border-primary/20 px-6 py-4 lg:px-20 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
       {/* Logo */}
       <div className="flex items-center gap-8">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-primary/30 group-hover:ring-primary transition-all duration-300">
-            <Image
+        <div className="flex items-center gap-3">
+          <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-primary/30 hover:ring-primary transition-all duration-300">
+            <ZoomableImage
               src="/profil.png"
               alt="Dhia Eddine Barhoumi"
-              fill
-              className="object-cover"
-              priority
+              className="w-full h-full"
             />
           </div>
-          <span className="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">
-            Dhia<span className="text-primary">Eddine</span>
-          </span>
-        </Link>
+          <Link href="/" className="group">
+            <span className="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight group-hover:text-primary transition-colors">
+              Dhia<span className="text-primary">Eddine</span>
+            </span>
+          </Link>
+        </div>
 
         {/* Nav links */}
         <nav className="hidden md:flex items-center gap-8">
