@@ -67,12 +67,14 @@ export function ZoomableImage({ src, alt, className, objectFit = "cover" }: Zoom
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative z-[110] flex items-center justify-center w-full h-full pointer-events-none p-4"
+              className="relative z-[110] w-full h-full max-w-[95vw] max-h-[90vh] pointer-events-none"
             >
-              <img
+              <Image
                 src={src}
                 alt={alt}
-                className="max-w-full max-h-full w-auto h-auto object-contain rounded-xl shadow-2xl ring-1 ring-primary/20 pointer-events-auto"
+                fill
+                className="object-contain rounded-xl shadow-2xl ring-1 ring-primary/20"
+                priority
               />
             </motion.div>
           </div>
