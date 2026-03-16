@@ -62,17 +62,16 @@ export function ZoomableImage({ src, alt, className }: ZoomableImageProps) {
 
             {/* Image Container */}
             <motion.div
-              layoutId={src}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative z-[110] max-w-[95vw] max-h-[90vh] md:max-w-4xl flex items-center justify-center"
+              className="relative z-[110] max-w-[95vw] max-h-[90vh] flex items-center justify-center"
             >
               <img
                 src={src}
                 alt={alt}
-                className="w-full h-full object-contain rounded-xl shadow-2xl ring-1 ring-primary/20"
+                className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl ring-1 ring-primary/20"
               />
             </motion.div>
           </div>
