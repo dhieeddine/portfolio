@@ -5,6 +5,13 @@ import { Projects }   from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { Contact }    from "@/components/sections/Contact";
 import { getPinnedRepos } from "@/lib/github";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function HomePage() {
   const repos = await getPinnedRepos();

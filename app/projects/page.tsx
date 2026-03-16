@@ -5,6 +5,9 @@ import { LANGUAGE_COLORS } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Projects",
   description: "All my GitHub projects — ML, DevOps, Cloud, Full-Stack.",
+  alternates: {
+    canonical: "/projects",
+  },
 };
 
 export default async function ProjectsPage() {

@@ -36,7 +36,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Dhia Eddine Barhoumi", url: BASE_URL }],
   creator: "Dhia Eddine Barhoumi",
-  alternates: { canonical: BASE_URL },
   openGraph: {
     type: "website",
     locale: "en_US",

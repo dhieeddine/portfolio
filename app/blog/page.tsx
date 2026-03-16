@@ -6,6 +6,9 @@ import { formatDate } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Articles about ML, DevOps, Cloud and Software Engineering.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default async function BlogPage() {
