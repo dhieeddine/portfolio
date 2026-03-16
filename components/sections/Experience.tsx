@@ -11,7 +11,7 @@ const EXPERIENCE = [
 
 const EDUCATION = [
   {
-    degree: "Master — Software Engineering",
+    degree: "Software Engineering",
     school: "ENIT — École Nationale d'Ingénieurs de Tunis",
     period: "2023 → 2026",
     note: null,
@@ -88,7 +88,7 @@ export function Experience() {
                   <div key={cert.name} className="flex items-center gap-4 p-3 rounded-xl border border-gray-100 dark:border-white/8 bg-white dark:bg-white/3">
                     <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-500/10 flex items-center justify-center shrink-0">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a7c6e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                        <circle cx="12" cy="8" r="6" /><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
                       </svg>
                     </div>
                     <div className="flex-1 min-w-0">

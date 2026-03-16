@@ -26,7 +26,7 @@ export function About() {
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://linkedin.com/in/dhiaeddine-barhoumi"
+              href="https://www.linkedin.com/in/dhia-eddine-barhoumi-511b5b360"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 text-sm hover:border-teal-400 transition-colors"
@@ -45,9 +45,9 @@ export function About() {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4">
           {[
-            { value: "5+",   label: "GitHub Projects" },
+            { value: "5+", label: "GitHub Projects" },
             { value: "~98%", label: "YOLO model accuracy" },
-            { value: "2",    label: "Certifications" },
+            { value: "2", label: "Certifications" },
             { value: "2026", label: "Expected graduation" },
           ].map(({ value, label }) => (
             <div
