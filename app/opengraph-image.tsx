@@ -60,7 +60,6 @@ export default async function OgImage() {
               border: "1px solid rgba(10,124,110,0.4)",
               borderRadius: "100px",
               padding: "8px 20px",
-              width: "fit-content",
             }}
           >
             <div
