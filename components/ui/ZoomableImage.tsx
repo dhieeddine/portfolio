@@ -60,21 +60,19 @@ export function ZoomableImage({ src, alt, className }: ZoomableImageProps) {
               </svg>
             </motion.button>
 
-            {/* Image */}
+            {/* Image Container */}
             <motion.div
               layoutId={src}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative aspect-square w-full max-w-2xl overflow-hidden rounded-2xl ring-1 ring-primary/20"
+              className="relative z-[110] max-w-[95vw] max-h-[90vh] md:max-w-4xl flex items-center justify-center"
             >
-              <Image
+              <img
                 src={src}
                 alt={alt}
-                fill
-                className="object-contain"
-                priority
+                className="w-full h-full object-contain rounded-xl shadow-2xl ring-1 ring-primary/20"
               />
             </motion.div>
           </div>
