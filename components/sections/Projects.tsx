@@ -2,46 +2,127 @@ import Link from "next/link";
 import type { GithubRepo } from "@/lib/github";
 import { LANGUAGE_COLORS } from "@/lib/utils";
 
+// Hardcoded featured projects matching the design
+const FEATURED = [
+  {
+    name: "Vision-to-Infrastructure Pipeline (PFA 2)",
+    description:
+      "End-to-end AI system translating network drawings into Terraform configurations using YOLOv8 for 98% accuracy.",
+    tags: ["Python", "YOLOv8", "Terraform"],
+    visual: "pipeline",
+  },
+  {
+    name: "Network Automation & Monitoring",
+    description:
+      "Automating lifecycle management for virtualized network infrastructures using Jinja2-based scripts and Ansible.",
+    tags: ["Ansible", "Jinja2", "Network Automation"],
+    visual: "router",
+  },
+  {
+    name: "SocialMedia Microservices Architecture",
+    description:
+      "Distributed system using 7 independent services and MongoDB Atlas with a centralized API Gateway and domain-driven design.",
+    tags: ["Node.js", "TypeScript", "MongoDB"],
+    visual: "hub",
+  },
+];
+
 interface ProjectsProps {
   repos: GithubRepo[];
 }
 
 export function Projects({ repos }: ProjectsProps) {
   return (
-    <section id="projects" className="py-24 px-6 max-w-6xl mx-auto">
-      <div className="flex items-end justify-between mb-12">
-        <div>
-          <p className="text-teal-500 font-mono text-sm mb-2">// projects</p>
-          <h2 className="text-4xl font-display font-semibold">What I&apos;ve built</h2>
+    <section id="projects" className="px-6 py-20 bg-white/5 dark:bg-background-darker">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col gap-2 mb-12">
+          <h2 className="text-slate-900 dark:text-slate-100 text-3xl font-bold tracking-tight">
+            Key Projects
+          </h2>
+          <div className="h-1 w-20 bg-primary" />
         </div>
-        <a
-          href="https://github.com/dhieeddine"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-        >
-          View all on GitHub
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/>
-          </svg>
-        </a>
-      </div>
 
-      {repos.length === 0 ? (
-        <p className="text-gray-500 dark:text-gray-400">
-          Projects loading... check{" "}
-          <a href="https://github.com/dhieeddine" className="text-teal-500 underline" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>{" "}
-          directly.
-        </p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {repos.map((repo, i) => (
-            <RepoCard key={repo.id} repo={repo} index={i} />
+        {/* Featured Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {FEATURED.map((project) => (
+            <div
+              key={project.name}
+              className="flex flex-col gap-4 group cursor-pointer bg-slate-900/40 rounded-xl p-4 border border-primary/10 hover:border-primary/40 transition-all"
+            >
+              {/* Visual thumbnail */}
+              <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-slate-700 bg-slate-800 flex items-center justify-center">
+                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/40 via-transparent to-transparent" />
+                {project.visual === "pipeline" && (
+                  <div className="absolute inset-0 grid grid-cols-2">
+                    <div className="bg-slate-800 flex items-center justify-center border-r border-primary/20">
+                      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00ffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+                      </svg>
+                    </div>
+                    <div className="bg-slate-900 p-2 font-mono text-[8px] text-green-400 overflow-hidden">
+                      <p>optimized_yolov8(accuracy=0.98)</p>
+                      <p>generate_topology_data()</p>
+                      <p>terraform_deploy(containerlab)</p>
+                    </div>
+                  </div>
+                )}
+                {project.visual === "router" && (
+                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00ffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40 group-hover:scale-110 transition-transform">
+                    <rect x="2" y="9" width="20" height="6" rx="2"/><path d="M8 9V5M16 9V5M12 9V5M8 15v4M16 15v4M12 15v4"/>
+                  </svg>
+                )}
+                {project.visual === "hub" && (
+                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00ffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40 group-hover:rotate-12 transition-transform">
+                    <circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6 6.5l4 4M18 6.5l-4 4M6 17.5l4-4M18 17.5l-4-4"/>
+                  </svg>
+                )}
+              </div>
+
+              {/* Text */}
+              <div>
+                <h3 className="text-slate-100 text-lg font-bold group-hover:text-primary transition-colors">
+                  {project.name}
+                </h3>
+                <p className="text-slate-400 text-sm mt-1 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex gap-2 mt-3 flex-wrap">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-      )}
+
+        {/* GitHub Repos */}
+        {repos.length > 0 && (
+          <>
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-slate-900 dark:text-slate-100 text-xl font-bold">
+                GitHub Repositories
+              </h3>
+              <a
+                href="https://github.com/dhieeddine"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-slate-400 hover:text-primary transition-colors font-mono"
+              >
+                View all →
+              </a>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {repos.map((repo, i) => (
+                <RepoCard key={repo.id} repo={repo} index={i} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </section>
   );
 }
@@ -54,53 +135,36 @@ function RepoCard({ repo, index }: { repo: GithubRepo; index: number }) {
       href={repo.html_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col p-5 rounded-2xl border border-gray-100 dark:border-white/8 bg-white dark:bg-white/3 hover:border-teal-300 dark:hover:border-teal-500/40 hover:bg-teal-50/30 dark:hover:bg-teal-500/5 transition-all duration-300 hover:-translate-y-1"
+      className="group flex flex-col p-5 rounded-xl border border-primary/10 bg-slate-900/40 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      {/* Header */}
       <div className="flex items-start justify-between mb-3">
-        <svg className="text-teal-500 mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="text-primary mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
         </svg>
-        <div className="flex items-center gap-3 text-gray-400 dark:text-gray-500 text-xs font-mono">
+        <div className="flex items-center gap-3 text-slate-400 text-xs font-mono">
           {repo.stargazers_count > 0 && (
-            <span className="flex items-center gap-1">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/>
-              </svg>
-              {repo.stargazers_count}
-            </span>
-          )}
-          {repo.forks_count > 0 && (
-            <span className="flex items-center gap-1">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M18 9a9 9 0 01-9 9"/>
-              </svg>
-              {repo.forks_count}
-            </span>
+            <span className="flex items-center gap-1">⭐ {repo.stargazers_count}</span>
           )}
         </div>
       </div>
 
-      {/* Repo name */}
-      <h3 className="font-display font-semibold text-gray-900 dark:text-white mb-2 leading-tight group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
+      <h3 className="font-bold text-slate-100 mb-2 leading-tight group-hover:text-primary transition-colors line-clamp-2">
         {repo.name.replace(/-/g, " ").replace(/_/g, " ")}
       </h3>
 
-      {/* Description */}
-      <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-3 mb-4">
+      <p className="text-sm text-slate-400 leading-relaxed flex-1 line-clamp-3 mb-4">
         {repo.description ?? "No description provided."}
       </p>
 
-      {/* Footer */}
-      <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-white/5">
+      <div className="flex items-center justify-between pt-3 border-t border-slate-700">
         {langColor && (
-          <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+          <span className="flex items-center gap-1.5 text-xs text-slate-400">
             <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: langColor }} />
             {repo.language}
           </span>
         )}
-        <span className="ml-auto text-xs font-mono text-teal-500 group-hover:underline">
+        <span className="ml-auto text-xs font-mono text-primary group-hover:underline">
           View →
         </span>
       </div>

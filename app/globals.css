@@ -4,12 +4,15 @@
 
 @layer base {
   :root {
-    --teal: #0a7c6e;
-    --teal-light: #e0f2ef;
+    --primary: #00ffff;
+    --bg-dark: #0f2323;
+    --bg-darker: #0a1a1a;
+    --navy-deep: #003366;
+    --slate-custom: #1e293b;
   }
 
   ::selection {
-    background: rgba(10, 124, 110, 0.25);
+    background: rgba(0, 255, 255, 0.25);
     color: inherit;
   }
 
@@ -20,7 +23,7 @@
   /* Custom scrollbar */
   ::-webkit-scrollbar       { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #0a7c6e; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: #00ffff; border-radius: 3px; }
 }
 
 @layer utilities {
@@ -41,18 +44,23 @@
     animation-fill-mode: forwards;
   }
 
-  /* Teal glow on focus */
-  .focus-teal:focus-visible {
-    outline: 2px solid #0a7c6e;
-    outline-offset: 3px;
+  /* Primary glow */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
   }
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, #0a7c6e 0%, #4ab8a8 50%, #1ea998 100%);
+    background: linear-gradient(135deg, #00ffff 0%, #4af7f7 50%, #00cccc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Dot grid background */
+  .dot-grid {
+    background-image: radial-gradient(circle at 2px 2px, #00ffff 1px, transparent 0);
+    background-size: 40px 40px;
   }
 }
 
@@ -62,19 +70,19 @@
 }
 
 [data-rehype-pretty-code-fragment] pre {
-  @apply rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-5 overflow-x-auto text-sm;
+  @apply rounded-xl border border-cyan-500/20 bg-slate-900 p-5 overflow-x-auto text-sm;
 }
 
 [data-rehype-pretty-code-title] {
-  @apply px-5 py-2 text-xs font-mono text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-white/5 border border-b-0 border-gray-200 dark:border-white/10 rounded-t-xl;
+  @apply px-5 py-2 text-xs font-mono text-slate-400 bg-slate-800 border border-b-0 border-cyan-500/20 rounded-t-xl;
 }
 
 [data-highlighted-line] {
-  @apply bg-teal-50/60 dark:bg-teal-500/10 -mx-5 px-5;
+  @apply bg-cyan-500/10 -mx-5 px-5;
 }
 
 /* Terminal cursor */
 .cursor::after {
   content: "|";
-  @apply animate-blink text-teal-500;
+  @apply animate-blink text-cyan-400;
 }

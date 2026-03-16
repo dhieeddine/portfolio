@@ -15,6 +15,11 @@ const config: Config = {
         display: ["var(--font-syne)", "sans-serif"],
       },
       colors: {
+        primary: "#00ffff",
+        "background-dark": "#0f2323",
+        "background-darker": "#0a1a1a",
+        "navy-deep": "#003366",
+        "slate-custom": "#1e293b",
         teal: {
           50:  "#e0f2ef",
           100: "#b3e0d8",

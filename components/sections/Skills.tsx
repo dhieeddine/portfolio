@@ -1,38 +1,40 @@
-const SKILLS = {
-  "ML & Vision": ["Python", "PyTorch", "Ultralytics YOLO", "OpenCV", "Jupyter", "NVIDIA CUDA"],
-  "Cloud & DevOps": ["Terraform", "Docker", "Containerlab", "GitHub Actions", "Ansible", "Jinja2"],
-  "Backend": ["Java", "Jakarta EE", "Spring Boot", "Node.js", "REST APIs", "JPA / Hibernate"],
-  "Frontend": ["TypeScript", "React", "Next.js", "Angular", "Tailwind CSS"],
-  "Data & DB": ["SQL", "PostgreSQL", "MongoDB", "H2"],
-  "Networking": ["CCNA", "Routing Protocols", "Jinja2 Templates", "Network Automation"],
-};
+const STACK = [
+  { icon: "{ }", label: "Python" },
+  { icon: "☕", label: "Java/Spring" },
+  { icon: "JS", label: "TypeScript" },
+  { icon: "🐳", label: "Docker" },
+  { icon: "⬡", label: "Terraform" },
+  { icon: "👁", label: "YOLO/OpenCV" },
+  { icon: "⚙", label: "Ansible" },
+];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-gray-50/50 dark:bg-white/[0.02]">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-teal-500 font-mono text-sm mb-2">// skills</p>
-        <h2 className="text-4xl font-display font-semibold mb-12">Tech stack</h2>
+    <section id="skills" className="px-6 py-20 lg:px-20">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-slate-900 dark:text-slate-100 text-3xl font-bold tracking-tight">
+            Technical Stack
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 mt-2 font-mono text-sm">
+            ENVIRONMENT_CAPABILITIES.json
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(SKILLS).map(([category, skills]) => (
+        {/* Stack grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-4">
+          {STACK.map(({ icon, label }) => (
             <div
-              key={category}
-              className="p-6 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.05] shadow-sm shadow-gray-200/50 dark:shadow-none"
+              key={label}
+              className="flex flex-col items-center gap-3 p-6 rounded-xl bg-slate-900/30 border border-primary/5 hover:bg-primary/5 hover:border-primary/20 transition-all cursor-default"
             >
-              <h3 className="text-sm font-mono text-teal-600 dark:text-teal-400 mb-5 font-semibold">
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-2.5">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 text-xs rounded-lg bg-teal-50 dark:bg-teal-500/10 text-teal-800 dark:text-teal-200 border border-teal-100/50 dark:border-teal-500/20 font-mono"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              <span className="text-3xl text-primary font-mono font-bold select-none">
+                {icon}
+              </span>
+              <span className="font-mono text-xs font-bold text-slate-300 text-center">
+                {label}
+              </span>
             </div>
           ))}
         </div>

@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${syne.variable} ${jetbrains.variable} font-sans bg-white dark:bg-[#0c0c0c] text-gray-900 dark:text-gray-100 antialiased`}>
+      <body className={`${syne.variable} ${jetbrains.variable} font-sans bg-white dark:bg-background-dark text-gray-900 dark:text-slate-100 antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <PersonJsonLd />
           <WebsiteJsonLd />

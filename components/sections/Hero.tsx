@@ -2,67 +2,114 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="min-h-[92vh] flex items-center px-6 py-20 max-w-6xl mx-auto">
-      <div className="w-full">
-        {/* Terminal badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-teal-200 dark:border-teal-500/30 bg-teal-50 dark:bg-teal-500/10 text-teal-700 dark:text-teal-400 text-xs font-mono mb-8 animate-fade-in">
-          <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-          Available for internships & collaborations
+    <section id="home" className="px-6 py-12 lg:px-20 lg:py-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+
+        {/* Left — Text Content */}
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-4">
+            {/* Status badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+              </span>
+              STATUS: READY_FOR_CHALLENGE
+            </div>
+
+            {/* Name */}
+            <h1 className="text-slate-900 dark:text-slate-100 text-5xl lg:text-7xl font-black leading-tight tracking-tighter">
+              Dhia Eddine <span className="text-primary">Barhoumi</span>
+            </h1>
+
+            {/* Role */}
+            <p className="text-primary text-xl font-bold tracking-wide">
+              Software Engineering Student @ ENIT
+            </p>
+
+            {/* Description */}
+            <p className="text-slate-600 dark:text-slate-400 text-lg max-w-lg leading-relaxed">
+              Focused on the synergy between AI and Infrastructure Automation. Passionate about
+              Computer Vision (YOLO), Cloud Native technologies, and building scalable systems.
+            </p>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/#projects"
+              className="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-background-dark text-base font-bold transition-all hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] hover:scale-105"
+            >
+              View Projects
+            </Link>
+            <a
+              href="/resume.pdf"
+              download
+              className="flex min-w-[140px] cursor-pointer items-center justify-center gap-2 rounded-lg h-12 px-6 border border-primary text-primary hover:bg-primary/10 text-base font-bold transition-all hover:scale-105"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download CV
+            </a>
+            <a
+              href="https://github.com/dhieeddine"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 border border-primary/50 text-primary hover:bg-primary/5 text-base font-bold transition-all hover:scale-105"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
 
-        {/* Name */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-semibold tracking-tight leading-[0.95] mb-6 animate-fade-up">
-          Dhia Eddine
-          <br />
-          <span className="gradient-text">Barhoumi</span>
-        </h1>
+        {/* Right — Code terminal */}
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary to-navy-deep rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000" />
+          <div className="relative flex flex-col bg-slate-900 rounded-xl overflow-hidden border border-primary/20 shadow-2xl">
+            {/* Window chrome */}
+            <div className="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
+              <div className="flex gap-1.5">
+                <div className="size-3 rounded-full bg-red-500/80" />
+                <div className="size-3 rounded-full bg-yellow-500/80" />
+                <div className="size-3 rounded-full bg-green-500/80" />
+              </div>
+              <div className="text-[10px] font-mono text-slate-400">profile.sh</div>
+            </div>
 
-        {/* Role */}
-        <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-mono mb-4 animate-fade-up delay-100">
-          <span className="text-teal-500">$</span>{" "}
-          <span className="cursor">Software Engineering Student · ENIT</span>
-        </p>
+            {/* Code body */}
+            <div className="p-6 font-mono text-sm flex flex-col gap-6 lg:flex-row">
+              <div className="flex-1 space-y-1">
+                <p className="text-slate-400"># Current Focus</p>
+                <p className="text-pink-400">expertise = [<span className="text-primary">&quot;AI&quot;</span>, <span className="text-primary">&quot;DevOps&quot;</span>]</p>
+                <p className="text-pink-400">location = <span className="text-green-400">&quot;Tunis, Tunisia&quot;</span></p>
+                <p>&nbsp;</p>
+                <p className="text-slate-100">def <span className="text-yellow-400">get_profile</span>():</p>
+                <p className="pl-4 text-slate-300">return &#123;</p>
+                <p className="pl-8 text-slate-300">&quot;name&quot;: <span className="text-green-400">&quot;Dhia Eddine Barhoumi&quot;</span>,</p>
+                <p className="pl-8 text-slate-300">&quot;edu&quot;: <span className="text-green-400">&quot;ENIT Software Eng&quot;</span>,</p>
+                <p className="pl-8 text-slate-300">&quot;pfa&quot;: <span className="text-green-400">&quot;Vision-to-Infra Pipeline&quot;</span></p>
+                <p className="pl-4 text-slate-300">&#125;</p>
+                <p className="text-primary mt-4 animate-pulse">_</p>
+              </div>
 
-        {/* Description */}
-        <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10 animate-fade-up delay-200">
-          Building intelligent systems at the intersection of{" "}
-          <span className="text-teal-600 dark:text-teal-400 font-medium">Machine Learning</span>,{" "}
-          <span className="text-teal-600 dark:text-teal-400 font-medium">Network Automation</span>, and{" "}
-          <span className="text-teal-600 dark:text-teal-400 font-medium">Cloud Infrastructure</span>.
-          Turning diagrams into deployments.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-4 animate-fade-up delay-300">
-          <Link
-            href="/#projects"
-            className="px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-medium transition-all hover:scale-105 active:scale-95"
-          >
-            View Projects
-          </Link>
-          <Link
-            href="/#contact"
-            className="px-6 py-3 rounded-xl border border-gray-200 dark:border-white/10 hover:border-teal-500 dark:hover:border-teal-500 text-gray-700 dark:text-gray-300 font-medium transition-all hover:scale-105 active:scale-95"
-          >
-            Get in Touch
-          </Link>
-          <a
-            href="/resume.pdf"
-            download
-            className="px-6 py-3 rounded-xl border border-gray-200 dark:border-white/10 hover:border-teal-500 dark:hover:border-teal-500 text-gray-700 dark:text-gray-300 font-medium transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            Resume
-          </a>
+              <div className="flex-1 border-t lg:border-t-0 lg:border-l border-slate-700 pt-6 lg:pt-0 lg:pl-6">
+                <div className="w-full aspect-square bg-slate-800/50 rounded-lg overflow-hidden relative flex items-center justify-center">
+                  <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/30 via-transparent to-transparent" />
+                  <div className="z-10 text-primary flex flex-col items-center gap-3">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+                    </svg>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 text-[10px] text-slate-500 uppercase tracking-widest font-bold text-center">
+                    System Architect v2.0
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 dark:text-gray-600 animate-fade-in delay-500">
-          <span className="text-xs font-mono">scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-gray-300 dark:from-gray-600 to-transparent" />
-        </div>
       </div>
     </section>
   );
