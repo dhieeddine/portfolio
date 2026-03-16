@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
@@ -18,8 +19,19 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#0c0c0c]/80 border-b border-gray-100 dark:border-white/5">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-display font-semibold text-lg tracking-tight hover:text-teal-500 transition-colors">
-          dhia<span className="text-teal-500">.</span>
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-teal-500 transition-all duration-300">
+            <Image
+              src="/profil.png"
+              alt="Dhia Eddine Barhoumi"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <span className="font-display font-semibold text-lg tracking-tight group-hover:text-teal-500 transition-colors">
+            dhia<span className="text-teal-500">.</span>
+          </span>
         </Link>
 
         <ul className="hidden md:flex items-center gap-1">
