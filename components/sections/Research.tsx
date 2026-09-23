@@ -1,17 +1,6 @@
-"use client";
-import { useState } from "react";
 import { RESEARCH_PAPER } from "@/lib/constants";
 
 export function Research() {
-  const [showBibtex, setShowBibtex] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  function copyBibtex() {
-    navigator.clipboard.writeText(RESEARCH_PAPER.links.bibtex);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
   return (
     <section id="research" className="py-24 px-6 max-w-7xl mx-auto">
       <div className="flex flex-col items-center text-center mb-14">
@@ -117,31 +106,16 @@ export function Research() {
             Net2Terraform Repository
           </a>
 
-          <button
-            onClick={() => setShowBibtex(!showBibtex)}
+          <a
+            href="mailto:dhiaeddine.barhoumi@etudiant-enit.utm.tn?subject=Preprint%20Inquiry%20-%20IEEE%20AIDIST%202026"
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-primary/30 text-primary hover:bg-primary/10 text-sm font-bold font-mono transition-colors"
           >
-            {showBibtex ? "Hide BibTeX" : "Cite / BibTeX"}
-          </button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            Request Preprint / Contact Authors →
+          </a>
         </div>
-
-        {/* Bibtex Drawer */}
-        {showBibtex && (
-          <div className="mt-6 p-4 rounded-xl border border-slate-700 bg-black/60 relative">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono text-slate-400">BibTeX Citation:</span>
-              <button
-                onClick={copyBibtex}
-                className="text-xs font-mono px-2.5 py-1 rounded bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
-              >
-                {copied ? "Copied!" : "Copy BibTeX"}
-              </button>
-            </div>
-            <pre className="text-xs font-mono text-slate-300 overflow-x-auto p-2 bg-slate-950 rounded border border-slate-800">
-              {RESEARCH_PAPER.links.bibtex}
-            </pre>
-          </div>
-        )}
       </div>
     </section>
   );

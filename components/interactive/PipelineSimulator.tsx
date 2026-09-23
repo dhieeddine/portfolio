@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { PIPELINE_DEMO_STEPS } from "@/lib/constants";
+import { ZoomableImage } from "@/components/ui/ZoomableImage";
 
 export function PipelineSimulator() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -49,7 +50,7 @@ export function PipelineSimulator() {
       </div>
 
       {/* Active Stage Details */}
-      <div className="p-6 space-y-4 min-h-[170px] flex flex-col justify-between">
+      <div className="p-6 space-y-4 min-h-[220px] flex flex-col justify-between">
         <div>
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold text-primary uppercase tracking-wider">
@@ -63,6 +64,52 @@ export function PipelineSimulator() {
           <p className="text-sm text-slate-200 leading-relaxed bg-slate-900/80 p-4 rounded-xl border border-slate-800 font-mono">
             {step.message}
           </p>
+
+          {/* Phase 6 Livrable Cartographique: Affichage de la carte annuelle de CartaGen */}
+          {step.step === 6 && (
+            <div className="mt-5 p-5 rounded-2xl bg-slate-900/90 border border-primary/40 shadow-xl space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-xs font-mono font-bold text-primary flex items-center gap-2">
+                  <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Livrable Cartographique Généré (DGRE - Annuaire Hydrologique)
+                </span>
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                  Interpolation IDW &amp; Isohyètes
+                </span>
+              </div>
+
+              {/* Conteneur de l'image de la carte annuelle */}
+              <div className="relative w-full h-72 md:h-96 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 group">
+                <ZoomableImage
+                  src="/carte_annuelle.png"
+                  alt="Carte annuelle pluviométrique générée par le système CartaGen - DGRE"
+                  className="w-full h-full"
+                  objectFit="contain"
+                />
+                <div className="absolute bottom-3 right-3 pointer-events-none bg-slate-950/85 px-3 py-1.5 rounded-lg text-[11px] font-mono text-slate-300 border border-primary/30 flex items-center gap-1.5 shadow-lg">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00ffff" strokeWidth="2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/>
+                  </svg>
+                  Cliquez pour agrandir en plein écran
+                </div>
+              </div>
+
+              {/* Métadonnées & Téléchargement */}
+              <div className="flex flex-wrap items-center justify-between text-xs font-mono text-slate-400 pt-2 border-t border-slate-800 gap-2">
+                <span>Ressource : carte_annuelle.png (Haute Définition)</span>
+                <a
+                  href="/carte_annuelle.png"
+                  download="carte_annuelle_cartagen_dgre.png"
+                  className="px-3 py-1 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-colors flex items-center gap-1.5 font-bold"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  Télécharger la carte HD
+                </a>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Stepper Controls */}

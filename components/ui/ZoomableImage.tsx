@@ -32,6 +32,8 @@ export function ZoomableImage({ src, alt, className, objectFit = "cover" }: Zoom
           src={src}
           alt={alt}
           fill
+          sizes="(max-width: 768px) 100vw, 400px"
+          priority
           className={objectFit === "cover" ? "object-cover" : "object-contain"}
         />
       </div>
@@ -54,7 +56,7 @@ export function ZoomableImage({ src, alt, className, objectFit = "cover" }: Zoom
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 z-[120] text-white/50 hover:text-white transition-colors p-2 bg-black/20 backdrop-blur-md rounded-full"
+              className="absolute top-6 right-6 z-[120] text-white/70 hover:text-white transition-colors p-2 bg-black/40 backdrop-blur-md rounded-full border border-primary/30 cursor-pointer"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M18 6L6 18M6 6l12 12"/>
@@ -73,7 +75,8 @@ export function ZoomableImage({ src, alt, className, objectFit = "cover" }: Zoom
                 src={src}
                 alt={alt}
                 fill
-                className="object-contain rounded-xl shadow-2xl ring-1 ring-primary/20"
+                sizes="95vw"
+                className="object-contain rounded-xl shadow-2xl ring-1 ring-primary/40"
                 priority
               />
             </motion.div>
