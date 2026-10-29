@@ -8,21 +8,20 @@ export function About() {
             // ABOUT_ENGINEER.sh
           </div>
           <h2 className="text-3xl lg:text-4xl font-display font-extrabold text-slate-100 mb-6 tracking-tight">
-            Bridging <span className="text-primary">Multi-Agent AI</span>, Computer Vision &amp; Cloud Infrastructure
+            Engineering <span className="text-primary">AI Systems</span> &amp; Cloud Automation
           </h2>
           <div className="space-y-4 text-slate-300 text-base leading-relaxed">
             <p>
-              Software Engineering student at <span className="text-primary font-semibold">ENIT</span> (École Nationale d&apos;Ingénieurs de Tunis).
-              Specialized in <strong className="text-slate-100">Multi-Agent Systems, RAG, Computer Vision</strong>, and modular Hexagonal / DDD architectures.
+              Computer Science Engineering student at <span className="text-primary font-semibold">ENIT</span> (École Nationale d&apos;Ingénieurs de Tunis), specializing in <strong className="text-slate-100">AI Systems Engineering and Cloud Automation</strong>.
             </p>
             <p>
-              Architect of <span className="text-primary font-semibold">CartaGen</span> (DGRE 2026) — an autonomous multi-agent platform for natural language hydrological analysis, PostGIS spatial queries, and compiled LaTeX/PDF bulletin generation with AST code validation.
+              My profile bridges algorithmic intelligence (<strong className="text-slate-100">Machine Learning, Biomedical Data Mining, Computer Vision, and Autonomous AI Agents</strong>) with modern software engineering and <strong className="text-slate-100">DevOps</strong> rigor.
             </p>
             <p>
-              Co-author of the scientific paper accepted at <strong className="text-primary">IEEE AIDIST 2026</strong>:
-              <em className="text-slate-200 block mt-1 pl-3 border-l-2 border-primary/40 font-mono text-sm">
-                &ldquo;From Network Diagrams to Deployable Cloud Infrastructure: A Multimodal AI-Based Approach&rdquo;
-              </em>
+              <strong className="text-slate-100 font-semibold">Areas of Expertise:</strong> Machine Learning, Biomedical Data Mining, EEG Signal Processing, Multi-Agent AI, Computer Vision, Geospatial Analysis, Hybrid RAG, and Cloud &amp; DevOps.
+            </p>
+            <p className="text-sm border-l-2 border-primary/40 pl-3 text-slate-400 font-mono">
+              Key outcomes: CartaGen (DGRE 2026), EEG absence seizure detection pipeline (91.7% S-match clinical sensitivity), and IEEE AIDIST 2026 paper on Vision-to-Terraform automation.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -54,10 +53,10 @@ export function About() {
         {/* Stats Grid - High contrast dark cards */}
         <div className="grid grid-cols-2 gap-4">
           {[
-            { value: "6+", label: "Flagship Projects", sub: "CartaGen, Net2Terraform, etc." },
+            { value: "7+", label: "Flagship Projects", sub: "CartaGen, EEG Mining, Net2Terraform" },
             { value: "98.4%", label: "YOLOv8 Accuracy", sub: "Network Topology Detection" },
+            { value: "91.7%", label: "Clinical S-Match", sub: "Seizure Detection Sensitivity" },
             { value: "IEEE '26", label: "Accepted Paper", sub: "AIDIST 2026 Conference" },
-            { value: "3", label: "Certifications", sub: "NVIDIA, Cisco, Hedera" },
           ].map(({ value, label, sub }) => (
             <div
               key={label}

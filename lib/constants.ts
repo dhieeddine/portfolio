@@ -9,7 +9,7 @@ export interface Project {
   tags: string[];
   repoUrl: string;
   repoName: string;
-  category: 'AI & Spatial' | 'AI & Cloud' | 'Fullstack & Cloud' | 'Enterprise & Systems' | 'DevOps & Networks';
+  category: 'AI & Spatial' | 'AI & Cloud' | 'Biomedical & AI' | 'Fullstack & Cloud' | 'Enterprise & Systems' | 'DevOps & Networks';
   featured: boolean;
   demoType?: 'cartagen-pipeline' | 'vision-terraform' | 'microservices-graph';
   metrics?: { stars?: number; forks?: number; statusBadge?: string };
@@ -136,6 +136,30 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     metrics: { statusBadge: "IEEE AIDIST 2026" }
   },
   {
+    slug: "biomedical-eeg-datamining",
+    title: "Biomedical EEG Data Mining",
+    subtitle: "Détection Automatique des Crises d'Absence par Signaux EEG Multi-Voies",
+    org: "ENIT / Traitement du Signal Médical & Data Mining",
+    period: "2025 – 2026",
+    description: "Système complet de Data Mining biomédical pour la détection clinique automatisée des crises d'absence épileptiques pédiatriques à partir de signaux EEG 19 canaux (système standard international 10-20). Conçu pour éliminer la fuite d'information inter-patients (zero data leakage) et fournir une évaluation clinique continue par événements complets (S-match).",
+    architecture: "Filtrage Butterworth SOS (0.5–40 Hz), extraction de 20 descripteurs spatio-temporels et fréquentiels (résonance 3 Hz, ratios Delta/Theta/Alpha/Beta, synchronie spatiale inter-électrodes), validation sans fuite Group 5-Fold / LOPO, rééquilibrage cost-sensitive/SMOTE, évaluation clinique S-match événementielle (91.7% sensibilité clinique, 1.2–2.8 FP/h) et workstation d'analyse Streamlit 7 modules.",
+    tags: [
+      "Biomedical Data Mining",
+      "EEG Signal Processing",
+      "Scikit-Learn",
+      "SciPy",
+      "Group 5-Fold (LOPO)",
+      "Streamlit",
+      "Cost-Sensitive ML",
+      "S-Match Evaluation"
+    ],
+    repoUrl: "https://github.com/dhieeddine/data_mining_biomedical",
+    repoName: "data_mining_biomedical",
+    category: "Biomedical & AI",
+    featured: true,
+    metrics: { statusBadge: "91.7% Sensibilité Clinique (S-match)" }
+  },
+  {
     slug: "socialmedia-microservices",
     title: "SocialMedia Distributed Microservices",
     subtitle: "Architecture Événementielle & Domain-Driven Design (DDD)",
@@ -222,6 +246,20 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "PostGIS Spatial Queries", level: "Expert", badge: "DGRE" },
       { name: "IDW (Inverse Distance Weighting)", level: "Advanced" },
       { name: "Thiessen Polygons Spatial Interpolation", level: "Advanced" }
+    ]
+  },
+  {
+    id: "biomedical-datamining",
+    title: "Biomedical Data Mining & Signal",
+    icon: "activity",
+    summary: "Traitement du signal biomédical (EEG 19 canaux), ingénierie de features fréquentielles et spatiales, validation clinique sans fuite (LOPO).",
+    skills: [
+      { name: "EEG Signal Processing (10-20 System)", level: "Expert", badge: "Clinical" },
+      { name: "Spectral & Spatial Feature Engineering", level: "Expert", badge: "20 Descriptors" },
+      { name: "Group 5-Fold / LOPO Cross-Validation", level: "Expert", badge: "Zero Leakage" },
+      { name: "Cost-Sensitive ML & SMOTE", level: "Expert", badge: "Imbalance" },
+      { name: "S-Match Event-Based Evaluation (FP/h)", level: "Advanced", badge: "91.7% Sens." },
+      { name: "SciPy & Scikit-Learn Pipelines", level: "Expert" }
     ]
   },
   {

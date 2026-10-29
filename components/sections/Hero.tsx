@@ -31,13 +31,12 @@ export function Hero() {
 
             {/* Role */}
             <p className="text-primary text-xl font-bold tracking-wide font-mono">
-              Software Engineering Student @ ENIT
+              Computer Science Engineering Student @ ENIT
             </p>
 
             {/* Description */}
             <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
-              Specialized in <strong className="text-slate-100">Multi-Agent AI Systems</strong>, <strong className="text-slate-100">Computer Vision (YOLOv8)</strong>, and <strong className="text-slate-100">Cloud Infrastructure Automation</strong>.
-              Architect of <span className="text-primary font-semibold">CartaGen</span> (Stage Ingénieur DGRE 2026) and researcher on Vision-to-Terraform (IEEE AIDIST 2026).
+              Specialized in <strong className="text-slate-100">AI Systems Engineering</strong> and <strong className="text-slate-100">Cloud Automation</strong>. Combining algorithmic intelligence (<span className="text-primary font-medium">Machine Learning, Biomedical Data Mining, Computer Vision, Autonomous Agents</span>) with software engineering and DevOps rigor.
             </p>
           </div>
 
@@ -52,13 +51,15 @@ export function Hero() {
 
             <a
               href="/resume.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-xl h-11 px-5 border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-bold font-mono transition-all hover:scale-105 shadow-sm"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
               </svg>
-              Download CV
+              View CV
             </a>
 
             <a
@@ -106,15 +107,16 @@ export function Hero() {
             <div className="p-6 font-mono text-xs lg:text-sm flex flex-col gap-6 lg:flex-row">
               <div className="flex-1 space-y-1">
                 <p className="text-slate-500"># Engineering Profile</p>
-                <p className="text-pink-400">focus = [<span className="text-primary">&quot;Multi-Agent AI&quot;</span>, <span className="text-primary">&quot;RAG&quot;</span>, <span className="text-primary">&quot;DevOps&quot;</span>]</p>
+                <p className="text-pink-400">focus = [<span className="text-primary">&quot;AI Systems&quot;</span>, <span className="text-primary">&quot;Data Mining&quot;</span>, <span className="text-primary">&quot;Cloud &amp; DevOps&quot;</span>]</p>
                 <p className="text-pink-400">location = <span className="text-green-400">&quot;Tunis, Tunisia&quot;</span></p>
                 <p>&nbsp;</p>
                 <p className="text-slate-100">def <span className="text-yellow-400">get_engineer_profile</span>():</p>
                 <p className="pl-4 text-slate-300">return &#123;</p>
                 <p className="pl-8 text-slate-300">&quot;name&quot;: <span className="text-green-400">&quot;Dhia Eddine Barhoumi&quot;</span>,</p>
-                <p className="pl-8 text-slate-300">&quot;school&quot;: <span className="text-green-400">&quot;ENIT Software Eng.&quot;</span>,</p>
+                <p className="pl-8 text-slate-300">&quot;school&quot;: <span className="text-green-400">&quot;ENIT Computer Science Eng.&quot;</span>,</p>
                 <p className="pl-8 text-slate-300">&quot;stage_dgre&quot;: <span className="text-cyan-300">&quot;CartaGen (Multi-Agent)&quot;</span>,</p>
                 <p className="pl-8 text-slate-300">&quot;paper_ieee&quot;: <span className="text-emerald-400">&quot;AIDIST 2026 Accepted&quot;</span>,</p>
+                <p className="pl-8 text-slate-300">&quot;data_mining&quot;: <span className="text-yellow-300">&quot;EEG Seizure Detection (91.7%)&quot;</span>,</p>
                 <p className="pl-8 text-slate-300">&quot;pfa_research&quot;: <span className="text-green-400">&quot;Net2Terraform Pipeline&quot;</span></p>
                 <p className="pl-4 text-slate-300">&#125;</p>
                 <p className="text-primary mt-4 animate-pulse">_</p>
@@ -126,7 +128,7 @@ export function Hero() {
                   
                   <div className="relative w-full h-full">
                     <ZoomableImage
-                      src="/profil.png"
+                      src="/profile.png"
                       alt="Dhia Eddine Barhoumi"
                       className="w-full h-full object-cover"
                     />

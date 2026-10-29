@@ -12,7 +12,7 @@ export function Projects({ repos }: ProjectsProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
-  const categories = ["All", "AI & Spatial", "AI & Cloud", "Fullstack & Cloud", "Enterprise & Systems", "DevOps & Networks"];
+  const categories = ["All", "AI & Spatial", "AI & Cloud", "Biomedical & AI", "Fullstack & Cloud", "Enterprise & Systems", "DevOps & Networks"];
 
   const filteredProjects = selectedCategory === "All"
     ? FLAGSHIP_PROJECTS

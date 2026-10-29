@@ -3,10 +3,10 @@ import Link from "next/link";
 import { ZoomableImage } from "@/components/ui/ZoomableImage";
 
 const links = [
-  { href: "/#about",      label: "About" },
-  { href: "/#research",   label: "Research" },
-  { href: "/#projects",   label: "Projects" },
-  { href: "/#skills",     label: "Stack" },
+  { href: "/#about", label: "About" },
+  { href: "/#research", label: "Research" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#skills", label: "Stack" },
   { href: "/#experience", label: "Experience" },
 ];
 
@@ -18,7 +18,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <div className="relative size-9 rounded-full overflow-hidden ring-2 ring-primary/40 hover:ring-primary transition-all duration-300">
             <ZoomableImage
-              src="/profil.png"
+              src="/profile.png"
               alt="Dhia Eddine Barhoumi"
               className="w-full h-full object-cover"
             />
@@ -28,7 +28,7 @@ export function Navbar() {
               Dhia Eddine <span className="text-primary">Barhoumi</span>
             </span>
             <span className="text-[10px] font-mono text-slate-400">
-              ENIT Software Eng.
+              ENIT Computer Science Eng.
             </span>
           </Link>
         </div>
@@ -49,14 +49,16 @@ export function Navbar() {
 
       {/* Action Buttons: Resume, LinkedIn, GitHub, Contact */}
       <div className="flex items-center gap-2.5">
-        {/* Resume Download Button */}
+        {/* Resume View Button */}
         <a
           href="/resume.pdf"
-          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 text-xs font-mono font-bold transition-all shadow-sm hover:scale-105"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+            <circle cx="12" cy="12" r="3" />
           </svg>
           Resume
         </a>
@@ -70,7 +72,7 @@ export function Navbar() {
           className="size-9 rounded-lg border border-primary/20 bg-slate-900/60 hover:border-primary text-slate-300 hover:text-primary flex items-center justify-center transition-all hover:scale-105"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/>
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
           </svg>
         </a>
 

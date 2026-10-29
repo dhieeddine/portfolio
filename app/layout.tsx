@@ -22,17 +22,24 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dhiaeddinebarhoumi
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/icon.png",
+  },
   title: {
     default: "Dhia Eddine Barhoumi | AI Systems & Cloud Automation Engineer",
     template: "%s | Dhia Eddine Barhoumi",
   },
   description:
-    "Portfolio of Dhia Eddine Barhoumi, Software Engineering student at ENIT specializing in Multi-Agent AI, RAG, Computer Vision (YOLOv8), PostGIS, Terraform and Cloud Automation. Author of IEEE AIDIST 2026 paper.",
+    "Portfolio of Dhia Eddine Barhoumi, Computer Science Engineering student at ENIT specializing in AI Systems Engineering and Cloud Automation. Combining algorithmic intelligence (Machine Learning, Biomedical Data Mining, Computer Vision, Autonomous Agents) with software engineering and DevOps rigor.",
   keywords: [
-    "Dhia Eddine Barhoumi", "ENIT", "CartaGen", "Net2Terraform", "IEEE AIDIST 2026",
-    "Multi-Agent AI", "RAG", "PostGIS", "FastAPI", "Computer Vision", "YOLOv8",
-    "Terraform", "DevOps", "Python", "Next.js", "Spring Boot", "Angular 20",
-    "Hexagonal Architecture", "Containerlab", "Portfolio",
+    "Dhia Eddine Barhoumi", "ENIT", "Computer Science Engineer", "AI Systems Engineering",
+    "Cloud Automation", "Machine Learning", "Biomedical Data Mining", "EEG Signal Processing",
+    "Autonomous Agents", "Computer Vision", "YOLOv8", "CartaGen", "Net2Terraform", "IEEE AIDIST 2026",
+    "Terraform", "DevOps", "Python", "FastAPI", "Spring Boot", "Angular 20", "Next.js",
   ],
   authors: [{ name: "Dhia Eddine Barhoumi", url: BASE_URL }],
   creator: "Dhia Eddine Barhoumi",
